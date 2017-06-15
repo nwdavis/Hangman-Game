@@ -34,7 +34,7 @@ var alphabet = ["a",
 				"z"];
 var guessedLetters = [];
 var wordChoice = [];
-
+var userChoice = [];
 
 //computer chooses a word from the array countries
 //computer breaks that word into separate letters
@@ -64,14 +64,43 @@ var breakDown = wordChoice.split("");
 
 console.log(breakDown);
 
-//for loop replacing letters with underscores
+
+//for loop creating spans for letters/underscores ---- NOT WORKING, MOVING ON
 
 var wordDiv = document.getElementById("theword");
 
 for (i = 0; i < breakDown.length; i++) {
 	var letterSpan = document.createElement("span");
-	letterSpan.innerHTML = breakDown.indexOf[i];
+	letterSpan.setAttribute("id", (i + 1));
 	console.log(letterSpan);
 	wordDiv.appendChild(letterSpan);
-	
+}
+
+document.onkeyup = function(event) {
+
+	var userChoice = event.key.toLowerCase();
+
+		if (guessedLetters.indexOf(userChoice) > -1) {
+			alert("You already guessed that!");
+		}
+
+		if (breakDown.indexOf(userChoice) === -1) {
+			guessesLeft--;
+			guessedLetters.push(userChoice);
+			
+		}
+		
+		if ((guessesLeft) < 1) {
+			guessesLeft = 10;
+			guessedLetters = [];
+			alert("You've been hung from the neck and are now dead.")
+			compChoice = wordChoice[randNum()];
+		}
+
+		var score = "<p> Wins: " + wins + "</p>" + 
+		"<p> Number of guesses remaining: " + guessesLeft + "</p>" +
+		"<p> Letters already guessed: " + guessedLetters + "</p>";
+
+		document.querySelector('#gamestats').innerHTML = score;
+
 }
