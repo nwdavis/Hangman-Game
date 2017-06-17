@@ -5,7 +5,7 @@ var countries = ["guatemala", "iraq", "monaco", "argentina", "libya", "brunei", 
 
 var wins = 0;
 var losses = 0;
-var guessesLeft = 0;
+var guessesLeft = 10;
 var alphabet = ["a", 
 				"b", 
 				"c", 
@@ -62,32 +62,54 @@ var wordChoice = countries[randNum()];
 
 var breakDown = wordChoice.split("");
 
-console.log(breakDown);
+console.log(breakDown)
 
+//creating the underscores
 
-//for loop creating spans for letters/underscores ---- NOT WORKING, MOVING ON
-
-var wordDiv = document.getElementById("theword");
-
-for (i = 0; i < breakDown.length; i++) {
-	var letterSpan = document.createElement("span");
-	letterSpan.setAttribute("id", (i + 1));
-	console.log(letterSpan);
-	wordDiv.appendChild(letterSpan);
+for (var i = 0; i < breakDown.length; i++){
+	breakDown[i] = "_ ";
 }
+
+console.log(breakDown) 
+
+//working from here up
+
+
+function gameSetup () {
+
+	
+	for (var i=0; i < breakDown.length; i++) {
+		var gameField = document.getElementById("worddiv");
+		var letterSpan = document.createElement("span");
+      	letterSpan.innerHTML = breakDown[i];
+      	console.log(letterSpan);
+      	gameField.appendChild(letterSpan);
+	}
+}
+
+gameSetup();
 
 document.onkeyup = function(event) {
 
 	var userChoice = event.key.toLowerCase();
 
+		if ((alphabet.indexOf(userChoice) === -1)) {
+			alert("That's not a letter.");
+		}
+
 		if (guessedLetters.indexOf(userChoice) > -1) {
-			alert("You already guessed that!");
+			alert("Ummmm, you already guessed that!");
 		}
 
 		if (breakDown.indexOf(userChoice) === -1) {
 			guessesLeft--;
 			guessedLetters.push(userChoice);
-			
+		} else {
+			for (i = 0; i < breakDown.length; i++) {
+				//search the breakDown array for the userChoice
+				//then write the letter to the span ID where the letter is
+			}
+
 		}
 		
 		if ((guessesLeft) < 1) {
@@ -97,10 +119,5 @@ document.onkeyup = function(event) {
 			compChoice = wordChoice[randNum()];
 		}
 
-		var score = "<p> Wins: " + wins + "</p>" + 
-		"<p> Number of guesses remaining: " + guessesLeft + "</p>" +
-		"<p> Letters already guessed: " + guessedLetters + "</p>";
-
-		document.querySelector('#gamestats').innerHTML = score;
 
 }
