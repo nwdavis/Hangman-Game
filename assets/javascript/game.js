@@ -35,6 +35,7 @@ var alphabet = ["a",
 var guessedLetters = [];
 var wordChoice = [];
 var userChoice = [];
+var undrscrArray = [];
 
 //computer chooses a word from the array countries
 //computer breaks that word into separate letters
@@ -67,27 +68,25 @@ console.log(breakDown)
 //creating the underscores
 
 for (var i = 0; i < breakDown.length; i++){
-	breakDown[i] = "_ ";
+	undrscrArray.push("_");
 }
 
-console.log(breakDown) 
+console.log(undrscrArray); 
 
 //working from here up
 
-
-function gameSetup() {
+// function gameSetup() {
 
 	
 	for (var i=0; i < breakDown.length; i++) {
 		var gameField = document.getElementById("worddiv");
 		var letterSpan = document.createElement("span");
-      	letterSpan.innerHTML = breakDown[i];
-      	console.log(letterSpan);
+      	letterSpan.innerHTML = undrscrArray[i] + " ";
       	gameField.appendChild(letterSpan);
 	}
-}
+// }
 
-gameSetup();
+// gameSetup();
 
 document.onkeyup = function(event) {
 
@@ -104,11 +103,17 @@ document.onkeyup = function(event) {
 			return false;
 		}
 
-		for (var i = 0; i < breakDown.length; i++){
-				breakDown[i] = userChoice + " ";
-				var replaceLetter = breakDown[i];
-				console.log(breakDown[i]);
+		if ((breakDown.indexOf(userChoice)) > -1) {
+
+			
+			for (var i = 0; i < breakDown.length; i++){
+					if (userChoice === breakDown[i]) {
+						// letterSpan.innerHTML = undrscrArray[i];
+						undrscrArray[i] = userChoice;
+						letterSpan.innerHTML = undrscrArray[i];
+						}
 				}
+		}
 
 		if (breakDown.indexOf(userChoice) === -1) {
 			guessesLeft--;
@@ -124,12 +129,8 @@ document.onkeyup = function(event) {
 
 		var html = "<p> Wins: " + wins + "</p>" + 
 		"<p> Number of guesses remaining: " + guessesLeft + "</p>" +
-		"<p> Letters already guessed: " + guessedLetters + "</p>";
+		"<p> Wrong letters: " + guessedLetters + "</p>";
 
 		document.querySelector("#scoring").innerHTML = html;
 
 	}
-
-
-//issues: replacing underscores with numbers...it's just logging out 10 instances of the same letter
-//
