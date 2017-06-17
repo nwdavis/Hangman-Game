@@ -147,7 +147,7 @@ function gameStart(){
 				guessesLeft = 10;
 				guessedLetters = [];
 				gameStart();
-				alert("You've been hung from the neck and are now dead.")
+				alert("The word was " + breakDown.join("") + "!" + " You've been hung from the neck and are now dead." + " Click okay to play again!");
 			}
 
 			if (undrscrArray.indexOf("_") === -1) {
