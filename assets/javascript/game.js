@@ -75,7 +75,7 @@ console.log(breakDown)
 //working from here up
 
 
-function gameSetup () {
+function gameSetup() {
 
 	
 	for (var i=0; i < breakDown.length; i++) {
@@ -91,27 +91,30 @@ gameSetup();
 
 document.onkeyup = function(event) {
 
+
 	var userChoice = event.key.toLowerCase();
 
 		if ((alphabet.indexOf(userChoice) === -1)) {
 			alert("That's not a letter.");
+			return false;
 		}
 
 		if (guessedLetters.indexOf(userChoice) > -1) {
 			alert("Ummmm, you already guessed that!");
+			return false;
 		}
+
+		for (var i = 0; i < breakDown.length; i++){
+				breakDown[i] = userChoice + " ";
+				var replaceLetter = breakDown[i];
+				console.log(breakDown[i]);
+				}
 
 		if (breakDown.indexOf(userChoice) === -1) {
 			guessesLeft--;
 			guessedLetters.push(userChoice);
-		} else {
-			for (i = 0; i < breakDown.length; i++) {
-				//search the breakDown array for the userChoice
-				//then write the letter to the span ID where the letter is
-			}
-
 		}
-		
+
 		if ((guessesLeft) < 1) {
 			guessesLeft = 10;
 			guessedLetters = [];
@@ -119,5 +122,14 @@ document.onkeyup = function(event) {
 			compChoice = wordChoice[randNum()];
 		}
 
+		var html = "<p> Wins: " + wins + "</p>" + 
+		"<p> Number of guesses remaining: " + guessesLeft + "</p>" +
+		"<p> Letters already guessed: " + guessedLetters + "</p>";
 
-}
+		document.querySelector("#scoring").innerHTML = html;
+
+	}
+
+
+//issues: replacing underscores with numbers...it's just logging out 10 instances of the same letter
+//
