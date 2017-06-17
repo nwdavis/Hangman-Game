@@ -1,4 +1,4 @@
-var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Botswana","Brazil","Brunei","Bulgaria","Burundi","Cambodia","Cameroon","Canada","Chad","Chile","China","Colombia","Croatia","Cuba","Cyprus","Czechia","Denmark","Djibouti","Dominica","Ecuador","Egypt","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Grenada","Guatemala","Guinea","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Martinique","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palau","Palestine","Panama","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Samoa","Senegal","Serbia","Seychelles","Singapore","Slovakia","Slovenia","Somalia","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"]
+var countries = ["afghanistan","albania","algeria","andorra","angola","argentina","armenia","aruba","australia","austria","azerbaijan","bahamas","bahrain","bangladesh","barbados","belarus","belgium","belize","benin","bermuda","bhutan","bolivia","botswana","brazil","brunei","bulgaria","burundi","cambodia","cameroon","canada","chad","chile","china","colombia","croatia","cuba","cyprus","czechia","denmark","djibouti","dominica","ecuador","egypt","eritrea","estonia","ethiopia","fiji","finland","france","gabon","gambia","georgia","germany","ghana","gibraltar","greece","grenada","guatemala","guinea","guyana","haiti","honduras","hungary","iceland","india","indonesia","iran","iraq","ireland","israel","italy","jamaica","japan","jordan","kazakhstan","kenya","kiribati","kuwait","kyrgyzstan","laos","latvia","lebanon","lesotho","liberia","libya","liechtenstein","lithuania","luxembourg","macedonia","madagascar","malawi","malaysia","maldives","mali","malta","martinique","mauritania","mauritius","mexico","moldova","monaco","mongolia","montenegro","morocco","mozambique","myanmar","namibia","nauru","nepal","netherlands","nicaragua","niger","nigeria","norway","oman","pakistan","palau","palestine","panama","paraguay","peru","philippines","poland","portugal","qatar","romania","russia","rwanda","samoa","senegal","serbia","seychelles","singapore","slovakia","slovenia","somalia","spain","sudan","suriname","swaziland","sweden","switzerland","syria","taiwan","tajikistan","tanzania","thailand","togo","tonga","tunisia","turkey","turkmenistan","tuvalu","uganda","ukraine","uruguay","uzbekistan","vanuatu","venezuela","vietnam","yemen","zambia","zimbabwe"]
 
 var wins = 0;
 
@@ -51,7 +51,7 @@ function gameStart(){
 	//random number
 
 	function randNum() {
-		return Math.floor(Math.random() *165);	
+		return Math.floor(Math.random() *164);	
 		}
 
 	//random country using number
@@ -93,7 +93,7 @@ function gameStart(){
 
 
 		function randNum() {
-			return Math.floor(Math.random() *165);	
+			return Math.floor(Math.random() *164);	
 		}
 
 		wordChoice = countries[randNum()];
@@ -106,7 +106,6 @@ function gameStart(){
 
 
 	}
-
 
 
 	document.onkeyup = function(event) {
