@@ -1,8 +1,27 @@
+body {
+	background-image: url("../images/compass.jpg");
+	background-size: 100%;
+
+}
 .panel {
 	text-align: center;
+	border: none;
+	box-shadow: none;
+	background: transparent;
+	font-family: 'Rock Salt', cursive;
+	font-weight: bold;
+}
+
+#worddiv {
+	font-size: 40px;
+}
+
+#scoring {
+	font-size: 30px;
 }
 
 .jumbotron {
-	text-align: center;
 	background: transparent;
+	text-align: center;
+	font-family: 'Rock Salt', cursive;
 }

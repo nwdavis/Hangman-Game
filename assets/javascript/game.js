@@ -4,7 +4,6 @@ var countries = ["guatemala", "iraq", "monaco", "argentina", "libya", "brunei", 
 "turkey", "oman", "togo", "jamaica", "kiribati", "haiti", "djibouti", "norway", "cameroon", "belize", "kazakhstan"]
 
 var wins = 0;
-var losses = 0;
 
 
 function gameStart(){
@@ -137,7 +136,6 @@ function gameStart(){
 						if (userChoice === breakDown[i]) {
 							
 							undrscrArray[i] = userChoice;
-							console.log(undrscrArray[i]);
 							update();
 						}
 				}
@@ -151,16 +149,19 @@ function gameStart(){
 			if ((guessesLeft) < 1) {
 				guessesLeft = 10;
 				guessedLetters = [];
+				gameStart();
 				alert("You've been hung from the neck and are now dead.")
-				compChoice = wordChoice[randNum()];
 			}
 
 			if (undrscrArray.indexOf("_") === -1) {
 				wins++;
+				guessesLeft = 10;
+				guessedLetters = [];
+				alert("Congratulations! The word was " + breakDown.join("") + "!" + " Click okay to play again!");
 				reset();
 				update();
 				gameStart();
-				alert("Congratulations!");
+				
 				
 			}
 			
