@@ -223,7 +223,7 @@ function gameStart(){
 
 	var breakDown = wordChoice.split("");
 
-	console.log(breakDown)
+	// console.log(breakDown)
 
 	//creating the underscores
 
